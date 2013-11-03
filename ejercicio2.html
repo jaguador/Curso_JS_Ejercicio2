@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
+    <script type="text/javascript" src="jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="ejercicio2.js"></script>
+	<STYLE type="text/css">
+		td.casilla {			
+			background-color: white;
+			border-style: solid;
+			border-color: black;
+			border-width: 1pt;
+		}
+	</style>
+  </head>
+  <body>
+	<h1>Curso "Programación cliente-servidor en Javascript"</h1>
+	<h2>Ejercicio 2</h2>
+	<p>Juego Contecta 4: Hay 2 usuarios (rojo y azul) que colocan alternativamente fichas en el tablero y deben conseguir juntar 4 colores iguales en horizontal o en vertical</p>
+		<ul>
+			<li>Al pulsar el boton de "nuevo juego" se crea la tabla con el tablero</li>
+			<li>Hay botones en cada fila que en el evento onclick colocan la ficha en esa fila</li>
+			<li>Se seleccionan las celdas de esa fila y se crea la animación de ficha descenciendo</li>
+			<li>Al colocar la ficha se comprueba si hay alguna jugada ganadora y se indica</li>
+		</ul>
+	<hr>
+	<br/>
+	<form>
+	Crear un tablero nuevo:
+	<br/>Filas: <input type="text" name="filas" id="fldFilas" size="1" value="3">
+	<br/>Columnas: <input type="text" name="columnas" id="fldColumnas"  size="1" value="3">
+	<br/><input type="button" value="Nuevo juego" id="btnNuevo">
+	<script type="text/javascript">
+		$("#btnNuevo").click(function () {
+			iniciaJuego();
+		}
+		);
+	</script>
+	</form>
+	<br/>
+	<div id="panelJuego"></div>
+	<br/><br/>
+	<hr>
+	<p><b>Julio Aguado Robles</br>Alumno: al10788</b></p>
+  </body>
+</html>
