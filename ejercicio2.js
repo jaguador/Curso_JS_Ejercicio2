@@ -44,8 +44,13 @@ function dibujaTablero() {
 
 function iniciaJuego() {
 	// Comprobar que filas y columnas es numerico
-	tablero = new Tablero($("#fldFilas").val(),$("#fldColumnas").val());
-	tablero.dibujaTablero();
+	if ($.isNumeric($("#fldFilas").val()) && $.isNumeric($("#fldColumnas").val())) {
+		// Crear y dibujar el tablero
+		tablero = new Tablero($("#fldFilas").val(),$("#fldColumnas").val());
+		tablero.dibujaTablero();
+	}
+	else
+		alert('Debe introducir valores numéricos para filas y columnas');
 }
 
 // Funcion principal llamada desde el origen HTML
