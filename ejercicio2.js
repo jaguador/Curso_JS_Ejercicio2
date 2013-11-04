@@ -39,7 +39,15 @@ function dibujaTablero() {
 	html+= "</tr>";
 	html+= "</table>";
 	$("#panelJuego").html(html);
+	
+	for (var i=0; i<this.columnas; i++)
+		$(".btnCol"+i).bind("click", colocarFicha);
 }
+
+
+function colocarFicha(e) {
+	alert(e);
+} 
 
 
 function iniciaJuego() {
