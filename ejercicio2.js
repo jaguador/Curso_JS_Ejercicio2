@@ -4,6 +4,7 @@
 * Alumno: al10788
 ********************/
 
+var tablero;
 
 // Clase Tablero
 function Tablero(filas, columnas) {
@@ -28,25 +29,26 @@ function dibujaTablero() {
 	var html = "<table id='tblTablero' cellpadding=0 cellspacing=0><tr>";
 	// Botones para colocar ficha
 	for (var i=0; i<this.columnas; i++)
-		html += "<td><input type='button' value='Ficha' id='btnCol"+i+"'></td>";
+		html += "<td><input type='button' value='Ficha' id='btnCol_"+i+"'><script type=\"text/javascript\">$(\"#btnCol_"+i+"\").click(colocarFicha);</script></td>";
 	html += "</tr>";
 	for (var i=0; i<this.filas; i++) {
 		html += "<tr>";
 		for (var j=0; j<this.columnas; j++)
-			html+= "<td id='celda_'"+i+"_"+j+" class='casilla'>&nbsp;</td>";
+			html+= "<td id='celda_"+i+"_"+j+"' class='casilla'><div id='div_"+i+"_"+j+"' class='color_rojo'>a</div></td>";
 		html += "<tr>";
 	}
 	html+= "</tr>";
 	html+= "</table>";
 	$("#panelJuego").html(html);
 	
-	for (var i=0; i<this.columnas; i++)
-		$(".btnCol"+i).bind("click", colocarFicha);
 }
 
 
-function colocarFicha(e) {
-	alert(e);
+function colocarFicha() {
+	var columna = this.id.split('_')[1];
+	for (var i=0; i<tablero.filas; i++) {
+		$("#div_"+i+"_"+columna).fadeOut( 300 );
+	}
 } 
 
 
