@@ -11,15 +11,27 @@
 			border-color: black;
 			border-width: 1pt;
 		}
-		div.color_rojo {			
+		td.celda_blanco {			
+			background-color: white;
+			border-style: solid;
+			border-color: white;
+			border-width: 1pt;
+		}
+		div.blanco {			
+			background-color: white;
+		}
+		div.rojo {			
 			background-color: red;
+		}
+		div.azul {			
+			background-color: blue;
 		}
 	</style>
   </head>
   <body>
 	<h1>Curso "Programación cliente-servidor en Javascript"</h1>
 	<h2>Ejercicio 2</h2>
-	<p>Juego Contecta 4: Hay 2 usuarios (rojo y azul) que colocan alternativamente fichas en el tablero y deben conseguir juntar 4 colores iguales en horizontal o en vertical</p>
+	<p>Juego Contecta 4: Hay 2 jugadores (rojo y azul) que colocan alternativamente fichas en el tablero y deben conseguir juntar 4 colores iguales en horizontal o en vertical</p>
 		<ul>
 			<li>Al pulsar el boton de "nuevo juego" se crea la tabla con el tablero</li>
 			<li>Hay botones en cada fila que en el evento onclick colocan la ficha en esa fila</li>
