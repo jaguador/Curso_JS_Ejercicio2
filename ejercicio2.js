@@ -30,24 +30,19 @@ function Tablero(filas, columnas) {
 
 
 function mostrarGanador(posicion_fila, posicion_columna, color, direccion_fila, direccion_columna) {
-	var velocidad = 500;
-	function blink(selector, vel){
-		$(selector).animate({opacity:0}, 50, "linear", function(){
-			$(this).delay(vel);
-			$(this).animate({opacity:1}, 50, function(){
-				blink(this);
-			});
-			$(this).delay(vel);
-		});
-	}
 	var indice_fila = posicion_fila;
 	var indice_columna = posicion_columna;
 	for (var i=0; i<4; i++) {
-		// blink("#div_"+indice_fila+"_"+indice_columna, velocidad);
 		$("#div_"+indice_fila+"_"+indice_columna).append('<b>X</b>');
 		indice_fila += direccion_fila;
 		indice_columna += direccion_columna;
 	}
+	for (var i=0; i<this.columnas; i++)
+		$("#btnCol_"+i).attr('disabled','disabled');
+	$("#turno_"+tablero.turno).hide();
+	$("#turno_"+turnos[(tablero.jugadas)%turnos.length]).hide();
+	$("#ganador").append("<b>Gana jugador <span class='"+color+"'>"+color+"</span>!</b>");
+	$("#ganador").show();
 }
 
 
@@ -125,7 +120,7 @@ function chkGanador(posicion_fila, posicion_columna, color) {
 
 function dibujaTablero() {
 	// Crear la tabla con el tablero de juego
-	var html = "<table id='tblTablero' cellpadding=0 cellspacing=0><tr><td colspan='"+this.columnas+1+"' align='center'><div class='turno_rojo' id='turno_rojo'><b>TURNO ROJO</b></div><div class='turno_azul' id='turno_azul' style='opacity:0'><b>TURNO AZUL</b></div></td></tr><tr>";
+	var html = "<table id='tblTablero' cellpadding=0 cellspacing=0 align='center'><tr><td colspan='"+this.columnas+1+"' align='center'><div id='ganador'></div><div class='turno_rojo' id='turno_rojo'><b>TURNO ROJO</b></div><div class='turno_azul' id='turno_azul' style='opacity:0'><b>TURNO AZUL</b></div></td></tr><tr>";
 	// Botones para colocar ficha
 	for (var i=0; i<this.columnas; i++)
 		html += "<td><input type='button' value='Ficha' id='btnCol_"+i+"'><script type=\"text/javascript\">$(\"#btnCol_"+i+"\").click(colocarFicha);</script></td>";
