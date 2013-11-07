@@ -30,7 +30,7 @@ function Tablero(filas, columnas) {
 function chkGanador(posicion_fila, posicion_columna, color) {
 	var contador, pos_col, pos_fil;
 	// Mirar a la derecha
-	contador = 1;
+	contador = 0;
 	pos_col = posicion_columna;
 	while (pos_col < this.columnas && this.tablero[posicion_fila][pos_col] == color ) {
 		contador++;
@@ -38,7 +38,7 @@ function chkGanador(posicion_fila, posicion_columna, color) {
 	}
 	if (contador == 4) alert('encontrado horizontal a la derecha');
 	// Mirar a la izquierda
-	contador = 1;
+	contador = 0;
 	pos_col = posicion_columna;
 	while (pos_col >= 0 && this.tablero[posicion_fila][pos_col] == color ) {
 		contador++;
@@ -46,9 +46,9 @@ function chkGanador(posicion_fila, posicion_columna, color) {
 	}
 	if (contador == 4) alert('encontrado horizontal a la izquierda');
 	// Mirar abajo
-	contador = 1;
+	contador = 0;
 	pos_fil = posicion_fila
-	while (pos_fil >= this.filas && this.tablero[pos_fil][posicion_columna] == color ) {
+	while (pos_fil < this.filas && this.tablero[pos_fil][posicion_columna] == color ) {
 		contador++;
 		pos_fil++;
 	}
