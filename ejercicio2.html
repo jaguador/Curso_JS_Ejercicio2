@@ -22,8 +22,16 @@
 		}
 		div.rojo {			
 			background-color: red;
+			text-align: center;
 		}
 		div.azul {			
+			background-color: blue;
+			text-align: center;
+		}
+		div.turno_rojo {			
+			background-color: red;
+		}
+		div.turno_azul {			
 			background-color: blue;
 		}
 	</style>
@@ -42,8 +50,8 @@
 	<br/>
 	<form>
 	Crear un tablero nuevo:
-	<br/>Filas: <input type="text" name="filas" id="fldFilas" size="1" value="4">
-	Columnas: <input type="text" name="columnas" id="fldColumnas"  size="1" value="4">
+	<br/>Filas: <input type="text" name="filas" id="fldFilas" size="1" value="5">
+	Columnas: <input type="text" name="columnas" id="fldColumnas"  size="1" value="5">
 	<input type="button" value="Nuevo juego" id="btnNuevo">
 	<script type="text/javascript">
 		$("#btnNuevo").click(function () {
